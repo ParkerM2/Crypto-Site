@@ -12,17 +12,18 @@ const { Text, Title } = Typography;
 const { Option } = Select;
 
 const News = ({ simplified }) => {
-    const [newsCategory, setNewsCategory] = useState('health');
+    const [newsCategory, setNewsCategory] = useState('Cryptocurrency');
     const { data } = useGetCryptosQuery(100);
     const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory, count: simplified ? 6 : 12 });
 
     console.log(cryptoNews, 'news')
     
-
+    // show loader while loading API data
     if (!cryptoNews?.value) return <Loader />;
 
     return (
         <Row gutter={[24, 24]}>
+            {/* if simplified is passed as prop, don't show search options only crypto news */}
             {!simplified && (
                 <Col span={24}>
                     <Select
@@ -34,6 +35,7 @@ const News = ({ simplified }) => {
                         filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                     >
                         <Option value="Cryptocurrency">Cryptocurrency</Option>
+                        {/* maps over coins received from cryptoAPI to create options to hit bing news API with */}
                         {data?.data?.coins?.map((currency) => <Option value={currency.name}>{currency.name}</Option>)}
                     </Select>
                 </Col>
