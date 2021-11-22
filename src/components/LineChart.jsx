@@ -12,9 +12,9 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
         coinPrice.push(coinHistory?.data?.history[i].price)
     };
 
-  for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
-    coinTimestamp.push(new Date(coinHistory?.data?.history[i].timestamp).toDateString());
-  }
+    for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
+        coinTimestamp.push(new Date(coinHistory?.data?.history[i].timestamp).toDateString());
+    };
 
     const data = {
         labels: coinTimestamp,
@@ -40,7 +40,7 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
             ]
         }
     };
-    console.log(coinHistory)
+
     return (
         <>
             <Row className="chart-header">
@@ -53,6 +53,6 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
             <Line data={data} options={options} />
         </>
     )
-}
+};
 
-export default LineChart
+export default LineChart;
