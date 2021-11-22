@@ -3,8 +3,11 @@ import { Button, Menu, Typography, Avatar } from 'antd';
 import { Link } from 'react-router-dom';
 import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined } from '@ant-design/icons';
 import icon from '../images/cryptocurrency.png';
+import Sider from 'antd/lib/layout/Sider';
 
 const Navbar = () => {
+
+
     return (
         <div className="nav-container">
             <div className="logo-container">
