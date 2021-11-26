@@ -9,7 +9,7 @@
 
 ## [Click here to go to the Website!](https://youthful-northcutt-2db2a4.netlify.app)
 
-![HomePage]()
+![HomePage](https://github.com/ParkerM2/Crypto-Site/blob/main/src/images/home-screen.PNG?raw=true)
 
 ### 🏠 [Project Homepage](https://github.com/ParkerM2/Crypto-Site)
 
