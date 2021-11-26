@@ -9,6 +9,7 @@ import icon from '../images/cryptocurrency.png';
 const Navbar = () => {
     const [activeMenu, setActiveMenu] = useState(true);
     const [screenSize, setScreenSize] = useState(undefined);
+    const [textSize, setTextSize] = useState(undefined);
 
     useEffect(() => {
         const handleResize = () => setScreenSize(window.innerWidth);
@@ -22,8 +23,13 @@ const Navbar = () => {
 
     useEffect(() => {
         if (screenSize <= 800) {
+            setTextSize(4)
             setActiveMenu(false);
+        } else if (screenSize <= 1600 && screenSize > 800) {
+            setTextSize(4)
+            setActiveMenu(true);
         } else {
+            setTextSize(2)
             setActiveMenu(true);
         }
     }, [screenSize]);
@@ -32,7 +38,7 @@ const Navbar = () => {
         <div className="nav-container">
             <div className="logo-container">
                 <Avatar src={icon} size="large" />
-                <Typography.Title level={3} className="logo">
+                <Typography.Title level={textSize} className="logo">
                     <Link to="/"> One-For-All Crypto </Link>
                 </Typography.Title>
                 <Button className="menu-control-container" onClick={() => setActiveMenu(!activeMenu)}><MenuOutlined /></Button>
